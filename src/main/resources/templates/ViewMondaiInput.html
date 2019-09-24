@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>アンケートフォーム</h2>
+	<form th:action="@{/view-mondai-result}" th:object="${viewMondaiForm}" method="post">
+		<span th:text="#{label.name} + ':'"></span>
+		<input th:field="*{name}">
+		<br>
+		<span th:text="#{label.age} + ':'">:</span>
+		<input th:field="*{age}">
+		<br>
+		<span>海外旅行経験:</span>
+		<input type="radio" th:field="*{experience}" value="あり">あり
+		<input type="radio" th:field="*{experience}" value="なし">なし
+		<br>
+		<span>行きたい国:</span>
+		<input type="checkbox" th:field="*{goCountry}" value="アメリカ">アメリカ
+		<input type="checkbox" th:field="*{goCountry}" value="イギリス">イギリス
+		<input type="checkbox" th:field="*{goCountry}" value="フランス">フランス
+		<input type="checkbox" th:field="*{goCountry}" value="日本">日本
+		<br>
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>
