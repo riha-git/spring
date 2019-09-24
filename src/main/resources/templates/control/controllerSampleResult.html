@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>伝言内容</h1>
+	お名前：
+	<span th:text="${csForm.name}"></span>
+	<br>
+
+	伝言内容：
+	<span th:text="${csForm.message} ? ${csForm.message} : ${msg}"></span>
+</body>
+</html>
