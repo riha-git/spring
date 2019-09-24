@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/view-sample2-result}" th:object="${viewSample2Form}" method="post">
+		<span th:text="#{label.name} + ':'"></span>
+		<input th:field="*{name}">
+		<br>
+		<span th:text="#{label.age} + ':'">:</span>
+		<input th:field="*{age}">
+		<br>
+		<span>行きたい国:</span>
+		<input type="checkbox" th:field="*{goCountry}" value="アメリカ">アメリカ
+		<input type="checkbox" th:field="*{goCountry}" value="イギリス">イギリス
+		<input type="checkbox" th:field="*{goCountry}" value="フランス">フランス
+		<input type="checkbox" th:field="*{goCountry}" value="日本">日本
+		<br>
+		<span>住みたい国:</span>
+		<input type="radio" th:field="*{liveCountry}" value="アメリカ">アメリカ
+		<input type="radio" th:field="*{liveCountry}" value="イギリス">イギリス
+		<input type="radio" th:field="*{liveCountry}" value="フランス">フランス
+		<input type="radio" th:field="*{liveCountry}" value="日本">日本
+		<br>
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>

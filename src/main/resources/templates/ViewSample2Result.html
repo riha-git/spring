@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:object="${viewSample2Form}">
+		<span>名前：</span>
+		<span th:text="*{name}"></span>
+		<br>
+		<span>年齢：</span>
+		<span th:text="*{age}"></span>
+		<br>
+		<br>
+		<span>行きたい国:</span>
+		<table th:if="*{goCountry.length} != 0">
+			<tr th:each="gc: *{goCountry}">
+				<td th:text="${gc}">
+			</tr>
+		</table>
+		<br>
+		<span>住みたい国:</span>
+		<span th:text="*{liveCountry}"></span>
+	</div>
+</body>
+</html>
