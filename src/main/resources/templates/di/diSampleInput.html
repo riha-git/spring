@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{di-sample-result}" th:object="${diForm}" method="post">
+	現在の月：
+	<input type="number" th:field="*{month}">
+	<br>
+	現在の日：
+	<input type="number" th:field="*{day}">
+	<input type="submit" value="送信">
+	</form>
+</body>
+</html>
