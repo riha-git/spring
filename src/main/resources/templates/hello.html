@@ -6,7 +6,12 @@
 </head>
 <body>
 	<form th:action="@{/helloprint}" th:object="${helloPrintForm}" method="post">
+		名前：
 		<input th:field="*{name}">
+		<br>
+		ふりがな：
+		<input th:field="*{kana}">
+		<br>
 		<input type="submit" value="送信">
 	</form>
 </body>

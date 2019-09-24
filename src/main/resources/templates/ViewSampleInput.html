@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/view-sample-result}" th:object="${viewSampleForm}" method="post">
+		<span th:text="#{label.name}"></span>
+		<input th:field="*{name}">
+		<br>
+		<span th:text="#{label.age}"></span>
+		<input th:field="*{age}">
+		<br>
+		<span th:text="#{label.country}"></span>
+		<input type="checkbox" th:field="*{country}">
+		<br>
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>

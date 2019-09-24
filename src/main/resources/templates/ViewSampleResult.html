@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span th:text="#{label.name}"></span>
+	<span th:text="${viewSampleForm.name} == '' ? '未入力' : ${viewSampleForm.name}"></span>
+	<br>
+	<span th:text="#{label.age}"></span>
+	<span th:text="${viewSampleForm.age}? ${viewSampleForm.age} : '未入力'"></span>
+	<br>
+	<span th:text="${viewSampleForm.age} and ${viewSampleForm.age} >= 20 ? '成人'"></span>
+	<span th:text="${viewSampleForm.age} and ${viewSampleForm.age} < 20 ? '未成年'"></span>
+	<br>
+	<span>住まい</span>
+	<span th:text="${viewSampleForm.country} == true ? '関東' : '関東以外'"></span>
+</body>
+</html>
