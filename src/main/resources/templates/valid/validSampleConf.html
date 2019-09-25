@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	お名前：
+	<span th:text="${csForm.name}"></span>
+	<br>
+	年齢：
+	<span th:text="${csForm.age}"></span>
+	<br>
+	メールアドレス：
+	<span th:text="${csForm.mail}"></span>
+</body>
+</html>
