@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>製品情報登録確認</h1>
+	<form th:action="@{/insert-sample-end}" th:object="${insertForm}" method="post">
+		<table>
+			<tr>
+				<td>製品番号</td>
+				<td><span th:text="*{productNo}"></span></td>
+			</tr>
+			<tr>
+				<td>製品名</td>
+				<td><span th:text="*{productName}"></span></td>
+			</tr>
+			<tr>
+				<td>価格</td>
+				<td><span th:text="*{price}"></span></td>
+			</tr>
+		</table>
+		<input type="submit" name="back_btn" value="戻る">
+		<input type="submit" name="insert_btn" value="登録">
+	</form>
+</body>
+</html>
