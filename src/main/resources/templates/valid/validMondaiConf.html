@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<title>Insert title here</title>
+</head>
+<body>
+		会社名：
+		<span th:text="${vmForm.companyName}"></span>
+		<br>
+		会社のURL：
+		<span th:text="${vmForm.companyURL}"></span>
+		<br>
+		満足度：
+		<span th:text="${vmForm.level}"></span>
+</body>
+</html>

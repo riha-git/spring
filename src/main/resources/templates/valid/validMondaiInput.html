@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/valid-mondai-conf}" th:object="${vmForm}" method="post">
+		<p th:if="${#fields.hasErrors('all')}">エラーが発生しました！</p>
+		<!-- エラーメッセージ出力領域 -->
+		<p th:errors="*{all}" class="error-message">error！</p>
+		<!-- END -->
+		会社名：
+		<input type="text" th:field="*{companyName}" th:errorclass="error-input">
+		<br>
+		会社のURL：
+		<input type="text" th:field="*{companyURL}" th:errorclass="error-input">
+		<br>
+		満足度：
+		<input type="text" th:field="*{level}" th:errorclass="error-input">%
+		<br>
+		<input type="submit" value="確認">
+	</form>
+</body>
+</html>
