@@ -40,7 +40,7 @@ public class InsertSampleController {
 	}
 	
 	@RequestMapping(value = "/insert-sample-end", params = "back_btn")
-	public String back()
+	public String back(@ModelAttribute("insertForm") InsertSampleForm form)
 	{
 		return "db/insertSampleInput";
 	}

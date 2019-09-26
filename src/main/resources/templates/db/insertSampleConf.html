@@ -11,15 +11,24 @@
 		<table>
 			<tr>
 				<td>製品番号</td>
-				<td><span th:text="*{productNo}"></span></td>
+				<td>
+					<span th:text="*{productNo}"></span>
+					<input type="hidden" th:field="*{productNo}">
+				</td>
 			</tr>
 			<tr>
 				<td>製品名</td>
-				<td><span th:text="*{productName}"></span></td>
+				<td>
+					<span th:text="*{productName}"></span>
+					<input type="hidden" th:field="*{productName}">
+				</td>
 			</tr>
 			<tr>
 				<td>価格</td>
-				<td><span th:text="*{price}"></span></td>
+				<td>
+					<span th:text="*{price}"></span>
+					<input type="hidden" th:field="*{price}">
+				</td>
 			</tr>
 		</table>
 		<input type="submit" name="back_btn" value="戻る">

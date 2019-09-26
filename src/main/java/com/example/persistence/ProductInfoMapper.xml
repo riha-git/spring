@@ -4,8 +4,9 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.persistence.ProductInfoMapper">
-<insert id="insert">
-	INSERT INTO product_info(product_no, product_name, price)
-	VALUES (#{productNo}, #{productName}, #{price})
-</insert>
+	<insert id="insert">
+		INSERT INTO product_info(product_no, product_name, price)
+		VALUES (#{productNo}, #{productName}, #{price})
+		<!--VALUES ('12', 'test', 1)-->
+	</insert>
 </mapper>
