@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>製品情報検索</h1>
+	<p>検索する製品情報を入力してください</p>
+	<form th:action="@{/search-sample-list}" th:object="${searchForm}" method="post">
+	
+		<p th:errors="*{all}" class="error-message">error!</p>
+	
+		<table>
+			<tr>
+				<td>製品番号</td>
+				<td><input type="text" th:field="*{searchProductNo}" maxlength="5" th:errorclass="error-input"></td>
+			</tr>
+			<tr>
+				<td>製品名</td>
+				<td><input type="text" th:field="*{searchProductName}" th:errorclass="error-input"></td>
+			</tr>
+			<tr>
+				<td>価格</td>
+				<td><input type="number" th:field="*{searchMinPrice}" th:errorclass="error-input"></td>
+				<td><input type="number" th:field="*{searchMaxPrice}" th:errorclass="error-input"></td>
+			</tr>
+		</table>
+		<input type="submit" value="検索">
+	</form>
+	<hr>
+	<div th:if="${productInfoList} and ${productInfoList.size()} == 0">
+		<p>検索条件に該当するデータはありませんでした。</p>
+	</div>
+	<div th:if="${productInfoList} and ${productInfoList.size()} > 0">
+		<p>検索結果は以下の通りです。</p>
+		<table border="1">
+		<tr>
+			<th>id</th>
+			<th>製品番号</th>
+			<th>製品名</th>
+			<th>価格（円）</th>
+		</tr>
+		<tr th:each="productInfo : ${productInfoList}">
+			<td th:text="${productInfo.id}"></td>
+			<td th:text="${productInfo.productNo}"></td>
+			<td th:text="${productInfo.productName}"></td>
+			<td th:text="${productInfo.price}"></td>
+		</tr>
+		</table>
+	</div>
+</body>
+</html>

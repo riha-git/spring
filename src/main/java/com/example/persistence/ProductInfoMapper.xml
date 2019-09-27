@@ -9,4 +9,23 @@
 		VALUES (#{productNo}, #{productName}, #{price})
 		<!--VALUES ('12', 'test', 1)-->
 	</insert>
+	<select id="select" resultType="com.example.domain.ProductInfo">
+		<bind name="pNameLike" value="'%' + searchProductName + '%'"/>
+		SELECT * FROM product_info
+		<where>
+			<if test="searchProductNo != ''">
+				product_no = #{searchProductNo}
+			</if>
+			<if test="searchProductName != ''">
+				AND product_name = #{searchProductName}
+			</if>
+			<if test="searchMinPrice != null">
+				<![CDATA[ AND price >= #{searchMinPrice} ]]>
+			</if>
+			<if test="searchMaxPrice != null">
+				<![CDATA[ AND price >= #{searchMaxPrice} ]]>
+			</if>
+		</where>
+		ORDER BY id
+	</select>
 </mapper>
