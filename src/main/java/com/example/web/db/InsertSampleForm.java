@@ -1,9 +1,14 @@
 package com.example.web.db;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotEmpty;
 
 public class InsertSampleForm {
 
+	// serialVersionUIDを指定
+	private static final long serialVersionUID = 1L;
+	
 	@NotEmpty
 	private String productNo;
 	@NotEmpty

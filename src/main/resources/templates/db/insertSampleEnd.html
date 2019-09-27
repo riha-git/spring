@@ -8,5 +8,8 @@
 <body>
 	<h1>製品情報登録完了</h1>
 	<p>製品情報の登録が完了しました</p>
+	<form th:action="@{/insert-sample-input}" method="post">
+		<input type="submit" value="追加登録" /> 
+	</form>
 </body>
 </html>

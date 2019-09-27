@@ -7,11 +7,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.example.domain.ProductInfo;
 import com.example.service.DBSampleService;
 
 @Controller
+//セッションで管理するオブジェクトのキー名を指定
+@SessionAttributes("insertForm")
 public class InsertSampleController {
 	
 	@Autowired
@@ -62,8 +66,11 @@ public class InsertSampleController {
 	}
 	
 	@RequestMapping(value="/insert-sample-end", params="finish")
-	public String finish()
+	public String finish(SessionStatus sessionStatus)
 	{
+		// @SessionAttributesで指定したオブジェクトをセッションから破棄
+		sessionStatus.setComplete();
+		
 		return "db/insertSampleEnd";
 	}
 }
