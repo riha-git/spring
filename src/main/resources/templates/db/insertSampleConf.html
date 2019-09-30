@@ -7,6 +7,7 @@
 </head>
 <body>
 	<h1>製品情報登録確認</h1>
+	<span th:text="${duplicateErr}" class="error-message"></span>
 	<form th:action="@{/insert-sample-end}" th:object="${insertForm}" method="post">
 		<table>
 			<tr>

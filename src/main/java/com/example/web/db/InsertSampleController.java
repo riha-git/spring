@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.ui.Model;
 
 import com.example.domain.ProductInfo;
 import com.example.service.DBSampleService;
@@ -50,7 +51,7 @@ public class InsertSampleController {
 	}
 	
 	@RequestMapping(value = "/insert-sample-end", params = "insert_btn")
-	public String end(@ModelAttribute("insertForm") InsertSampleForm form)
+	public String end(@ModelAttribute("insertForm") InsertSampleForm form, Model model)
 	{
 		// データ登録に利用するドメインクラスのインスタンス化
 		ProductInfo productInfo = new ProductInfo();
@@ -58,6 +59,15 @@ public class InsertSampleController {
 		// formクラスの値をドメインクラスにコピー
 		BeanUtils.copyProperties(form, productInfo);
 		
+		// 製品名番号重複チェック
+		int num = service.selectProductCount(productInfo);
+		System.out.println(num);
+		if(num != 0)
+		{
+			model.addAttribute("duplicateErr", "製品番号が既に登録されています。");
+			return "db/insertSampleConf";
+		}
+
 		// データ登録用サービス処理呼び出し
 		service.insertProductInfo(productInfo);
 

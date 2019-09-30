@@ -27,4 +27,11 @@ public class DBSampleService {
 		List<ProductInfo> list = mapper.select(searchProductInfo);
 		return list;
 	}
+	
+	// count data method
+	public int selectProductCount(ProductInfo productInfo)
+	{
+		int num = mapper.count(productInfo);
+		return num;
+	}
 }

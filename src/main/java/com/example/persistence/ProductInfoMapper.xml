@@ -28,4 +28,7 @@
 		</where>
 		ORDER BY id
 	</select>
+	<select id="count" parameterType="com.example.domain.ProductInfo" resultType="int">
+		SELECT COUNT(*) FROM product_info where product_name = #{productName}
+	</select>
 </mapper>
